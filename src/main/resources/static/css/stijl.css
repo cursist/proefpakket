@@ -12,4 +12,13 @@ img {
   width: 100%;
 }
 
+nav a {
+  margin-right: 0.5em;
+}
+
+dd {
+  margin-left: 0;
+  font-weight: bold;
+}
+
 /*# sourceMappingURL=stijl.css.map */

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org" th:object="${brouwer}">
+<head th:replace="fragments::head(title=*{naam})"></head>
+<body>
+    <h1 th:text="*{naam}">geen brouwer</h1>
+    <dl>
+        <dt>Straat</dt>
+        <dd th:text="*{straat}"></dd>
+        <dt>Huisnummer</dt>
+        <dd th:text="*{huisNr}"></dd>
+        <dt>Postcode</dt>
+        <dd th:text="*{gemeente.postcode}"></dd>
+        <dt>Gemeente</dt>
+        <dd th:text="*{gemeente.naam}"></dd>
+        <dt>Ondernemingsnummer</dt>
+        <dd></dd>
+    </dl>
+</body>
+</html>
