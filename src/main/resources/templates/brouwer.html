@@ -13,7 +13,8 @@
         <dt>Gemeente</dt>
         <dd th:text="*{gemeente.naam}"></dd>
         <dt>Ondernemingsnummer</dt>
-        <dd></dd>
+        <dd th:text="*{ondernemingsnummer}"></dd>
     </dl>
+    <a th:href="@{/ondernemingsnummer/{id}(id = *{id})}">Ondernemingsnummer invullen</a>
 </body>
 </html>

@@ -1,5 +1,7 @@
 package be.vdab.proefpakket.entities;
 
+import be.vdab.proefpakket.valueobjects.Ondernemingsnummer;
+
 import javax.persistence.*;
 
 import static javax.persistence.FetchType.LAZY;
@@ -14,7 +16,10 @@ public class Brouwer {
 
     private String naam, straat, huisNr;
 
-    @ManyToOne
+    @Embedded
+    private Ondernemingsnummer ondernemingsnummer;
+
+    @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "gemeenteId")
     private Gemeente gemeente;
 
@@ -36,5 +41,13 @@ public class Brouwer {
 
     public Gemeente getGemeente() {
         return gemeente;
+    }
+
+    public Ondernemingsnummer getOndernemingsnummer() {
+        return ondernemingsnummer;
+    }
+
+    public void setOndernemingsnummer(Ondernemingsnummer ondernemingsnummer) {
+        this.ondernemingsnummer = ondernemingsnummer;
     }
 }
