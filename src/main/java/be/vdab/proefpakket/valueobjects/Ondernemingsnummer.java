@@ -18,4 +18,13 @@ public class Ondernemingsnummer {
     public Long getNummer() {
         return nummer;
     }
+
+    public void setNummer(Long nummer) {
+        this.nummer = nummer;
+    }
+
+    @Override
+    public String toString() {
+        return nummer.toString();
+    }
 }
