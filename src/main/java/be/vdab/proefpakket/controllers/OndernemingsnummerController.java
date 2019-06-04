@@ -1,7 +1,6 @@
 package be.vdab.proefpakket.controllers;
 
 import be.vdab.proefpakket.entities.Brouwer;
-import be.vdab.proefpakket.repositories.BrouwerRepository;
 import be.vdab.proefpakket.services.BrouwerService;
 import be.vdab.proefpakket.valueobjects.Ondernemingsnummer;
 import org.springframework.stereotype.Controller;
