@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title=*{naam})"></head>
+<body>
+    <h1>
+        Proefpakket
+        <span th:text="*{naam}"></span>
+        (stap 1)
+    </h1>
+    <form th:object="${bestelling}" method="post">
+        <label>
+            Straat
+            <span th:errors="*{adres.straat}"></span>
+            <input th:field="*{adres.straat}" type="text" required>
+        </label>
+        <label>
+            Huisnummer
+            <span th:errors="*{adres.huisNr}"></span>
+            <input th:field="*{adres.huisNr}" type="text" required>
+        </label>
+        <label>
+            Gemeente
+            <span th:errors="*{gemeente.naam}"></span>
+            <input th:field="*{gemeente.naam}" type="email" required>
+        </label>
+        <input type="submit" value="stap 2" name="stap2">
+    </form>
+
+</body>
+</html>
