@@ -5,7 +5,7 @@
     <h1>
         Proefpakket
         <span th:text="*{naam}"></span>
-        (stap 1)
+        (stap 2)
     </h1>
     <form th:object="${bestelling}" method="post">
         <label>
@@ -21,9 +21,15 @@
         <label>
             Gemeente
             <span th:errors="*{gemeente.naam}"></span>
-            <input th:field="*{gemeente.naam}" type="email" required>
+            <select th:field="*{gemeente.naam}" required>
+                <option th:each="gemeente : ${gemeenten}"
+                        th:text="${gemeente}"
+                        th:value="${gemeente}">
+                </option>
+            </select>
         </label>
-        <input type="submit" value="stap 2" name="stap2">
+        <input type="submit" value="stap 1" name="stap1" formnovalidate>
+        <input type="submit" value="opslaan" name=opslaan>
     </form>
 
 </body>

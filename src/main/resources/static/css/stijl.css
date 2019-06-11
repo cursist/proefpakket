@@ -21,7 +21,7 @@ dd {
   font-weight: bold;
 }
 
-form label, form input {
+form label, form input, form select {
   display: block;
   margin-bottom: 0.5rem;
 }

@@ -3,11 +3,11 @@ package be.vdab.proefpakket.entities;
 import be.vdab.proefpakket.valueobjects.Adres;
 
 import javax.persistence.*;
-import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Positive;
 import javax.validation.constraints.PositiveOrZero;
+
+import java.time.LocalDate;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -21,6 +21,8 @@ public class Bestelling {
     @GeneratedValue(strategy = IDENTITY)
     private long id;
 
+    private LocalDate datum = LocalDate.now();
+
     @NotBlank(groups = Stap1.class)
     private String voornaam, familienaam, emailAdres;
 
@@ -29,6 +31,7 @@ public class Bestelling {
     private Adres adres;
 
     @ManyToOne
+    @JoinColumn(name = "gemeenteId")
     @NotNull(groups = Stap2.class)
     private Gemeente gemeente;
 
