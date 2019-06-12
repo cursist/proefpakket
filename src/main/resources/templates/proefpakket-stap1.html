@@ -23,8 +23,21 @@
             <span th:errors="*{emailAdres}"></span>
             <input th:field="*{emailAdres}" type="email" required>
         </label>
-        <span th:errors="*{brouwer}"></span>
-        <input type="text" th:field="*{brouwer}">
+        <label style="display: none">
+            Brouwer
+            <span th:errors="*{brouwer}"></span>
+            <select th:field="*{brouwer}" required>
+<!--                <option th:each="brouwer : ${brouwers}"-->
+<!--                        th:text="|${brouwer.naam} ${brouwer.id}|"-->
+<!--                        th:value="${brouwer.id}">-->
+<!--                </option>-->
+                <option th:value="${brouwer.id}"></option>
+            </select>
+        </label>
+<!--        <span th:errors="*{brouwer}"></span>-->
+<!--        <label th:field="*{brouwer}">-->
+<!--            <input type="text" th:value="${brouwer.id}">-->
+<!--        </label>-->
         <input type="submit" value="stap 2" name="stap2">
     </form>
 </body>

@@ -2,9 +2,9 @@ package be.vdab.proefpakket.controllers;
 
 import be.vdab.proefpakket.entities.Bestelling;
 import be.vdab.proefpakket.entities.Brouwer;
-import be.vdab.proefpakket.entities.Gemeente;
 import be.vdab.proefpakket.exceptions.NietGevondenException;
 import be.vdab.proefpakket.services.BestellingService;
+import be.vdab.proefpakket.services.BrouwerService;
 import be.vdab.proefpakket.services.GemeenteService;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.DataBinder;
@@ -15,7 +15,6 @@ import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
@@ -29,10 +28,12 @@ public class ProefpakketController {
 
     private final BestellingService service;
     private final GemeenteService gemeenteService;
+    private final BrouwerService brouwerService;
 
-    public ProefpakketController(BestellingService service, GemeenteService gemeenteService) {
+    public ProefpakketController(BestellingService service, GemeenteService gemeenteService, BrouwerService brouwerService) {
         this.service = service;
         this.gemeenteService = gemeenteService;
+        this.brouwerService = brouwerService;
     }
 
     @GetMapping(URI_PATH)
@@ -40,9 +41,12 @@ public class ProefpakketController {
         var modelAndView = new ModelAndView(PAGINA_DEEL_1);
         if (optionalBrouwer.isPresent()) {
             var brouwer = optionalBrouwer.get();
+            var alleBrouwers = brouwerService.findAll();
             return modelAndView
                     .addObject(brouwer)
-                    .addObject(new Bestelling(brouwer));
+                    .addObject("brouwers", alleBrouwers)
+                    .addObject(new Bestelling());
+//                    .addObject(new Bestelling(brouwer));
         } else throw new NietGevondenException();
     }
 

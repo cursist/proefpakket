@@ -30,4 +30,7 @@ public class BrouwerService {
         }
     }
 
+    public List<Brouwer> findAll() {
+        return repository.findAll();
+    }
 }
