@@ -40,11 +40,6 @@ public class Bestelling {
     @JoinColumn(name = "brouwerId")
     @NotNull(groups = Stap1.class)
     private Brouwer brouwer;
-//
-//    protected Bestelling() {}
-//    public Bestelling(Brouwer brouwer) {
-//        this.brouwer = brouwer;
-//    }
 
     public String getVoornaam() {
         return voornaam;
