@@ -24,7 +24,6 @@
             <input th:field="*{emailAdres}" type="email" required>
         </label>
         <label>
-<!--            Brouwer-->
             <span th:errors="*{brouwer}"></span>
             <input type="hidden" name="brouwer" th:value="${optionalBrouwer.get().id}">
         </label>

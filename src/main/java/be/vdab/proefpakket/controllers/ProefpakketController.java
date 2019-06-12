@@ -38,9 +38,7 @@ public class ProefpakketController {
     ModelAndView stap1(@PathVariable Optional<Brouwer> optionalBrouwer) {
         var modelAndView = new ModelAndView(PAGINA_DEEL_1);
         if (optionalBrouwer.isPresent()) {
-//            var brouwer = optionalBrouwer.get();
             return modelAndView
-//                    .addObject(brouwer)
                     .addObject(new Bestelling());
         } else throw new NietGevondenException();
     }
