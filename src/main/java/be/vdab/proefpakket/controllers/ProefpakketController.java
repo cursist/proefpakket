@@ -20,7 +20,7 @@ import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @Controller
 @RequestMapping("proefpakket")
-@SessionAttributes({Bestelling.BESTELLING, Brouwer.BROUWER})
+@SessionAttributes(Bestelling.BESTELLING)
 public class ProefpakketController {
     private static final String PAGINA_DEEL_1 = "proefpakket-stap1";
     private static final String PAGINA_DEEL_2 = "proefpakket-stap2";
@@ -38,9 +38,9 @@ public class ProefpakketController {
     ModelAndView stap1(@PathVariable Optional<Brouwer> optionalBrouwer) {
         var modelAndView = new ModelAndView(PAGINA_DEEL_1);
         if (optionalBrouwer.isPresent()) {
-            var brouwer = optionalBrouwer.get();
+//            var brouwer = optionalBrouwer.get();
             return modelAndView
-                    .addObject(brouwer)
+//                    .addObject(brouwer)
                     .addObject(new Bestelling());
         } else throw new NietGevondenException();
     }
