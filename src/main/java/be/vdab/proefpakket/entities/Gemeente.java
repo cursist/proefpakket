@@ -23,6 +23,10 @@ public class Gemeente {
     @Max(9999)
     private short postcode;
 
+    public long getId() {
+        return id;
+    }
+
     public String getNaam() {
         return naam;
     }

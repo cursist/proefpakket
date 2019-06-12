@@ -14,6 +14,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "bestellingen")
 public class Bestelling {
+    public final static String BESTELLING = "bestelling";
     public interface Stap1 {}
     public interface Stap2 {}
 
@@ -35,8 +36,15 @@ public class Bestelling {
     @NotNull(groups = Stap2.class)
     private Gemeente gemeente;
 
-    @PositiveOrZero(groups = Stap2.class)
-    private long brouwerId;
+    @OneToOne
+    @JoinColumn(name = "brouwerId")
+    @NotNull(groups = Stap1.class)
+    private Brouwer brouwer;
+
+    protected Bestelling() {}
+    public Bestelling(Brouwer brouwer) {
+        this.brouwer = brouwer;
+    }
 
     public String getVoornaam() {
         return voornaam;
@@ -53,7 +61,7 @@ public class Bestelling {
     public Gemeente getGemeente() {
         return gemeente;
     }
-    public long getBrouwerId() {
-        return brouwerId;
+    public Brouwer getBrouwer() {
+        return brouwer;
     }
 }

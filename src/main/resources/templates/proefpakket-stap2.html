@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="nl" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments::head(title=*{naam})"></head>
+<head th:object="${brouwer}" th:replace="fragments::head(title=*{naam})"></head>
 <body>
     <h1>
         Proefpakket
@@ -20,16 +20,16 @@
         </label>
         <label>
             Gemeente
-            <span th:errors="*{gemeente.naam}"></span>
-            <select th:field="*{gemeente.naam}" required>
+            <span th:errors="*{gemeente}"></span>
+            <select th:field="*{gemeente}" required>
                 <option th:each="gemeente : ${gemeenten}"
-                        th:text="${gemeente}"
-                        th:value="${gemeente}">
+                        th:text="|${gemeente.naam} ${gemeente.postcode}|"
+                        th:value="${gemeente.id}">
                 </option>
             </select>
         </label>
-        <input type="submit" value="stap 1" name="stap1" formnovalidate>
         <input type="submit" value="opslaan" name=opslaan>
+        <input type="submit" value="stap 1" name="stap1" formnovalidate>
     </form>
 
 </body>

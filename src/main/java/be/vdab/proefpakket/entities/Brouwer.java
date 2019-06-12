@@ -10,6 +10,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Entity
 @Table(name = "brouwers")
 public class Brouwer {
+    public final static String BROUWER = "brouwer";
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private long id;

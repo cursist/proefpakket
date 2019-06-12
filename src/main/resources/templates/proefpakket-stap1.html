@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<html lang="nl" xmlns:th="http://www.thymeleaf.org" th:object="${brouwer}">
 <head th:replace="fragments::head(title=*{naam})"></head>
 <body>
     <h1>
@@ -15,16 +15,17 @@
         </label>
         <label>
             Familienaam
-            <span th:errors="*{voornaam}"></span>
+            <span th:errors="*{familienaam}"></span>
             <input th:field="*{familienaam}" type="text" required>
         </label>
         <label>
             Emailadres
-            <span th:errors="*{voornaam}"></span>
+            <span th:errors="*{emailAdres}"></span>
             <input th:field="*{emailAdres}" type="email" required>
         </label>
+        <span th:errors="*{brouwer}"></span>
+        <input type="text" th:field="*{brouwer}">
         <input type="submit" value="stap 2" name="stap2">
     </form>
-
 </body>
 </html>
